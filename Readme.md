@@ -1,7 +1,8 @@
-Parcel
+# Parcel
 
-Food App
+# Food App as an example
 
+# components
 /**
  * Header 
  *  Logo
@@ -17,10 +18,17 @@ Food App
  *     Contact 
  */
 
- Two types of export/import
+# Two types of export/import
  1. Default export/import
     export default Component;
     import Component from 'path';
  2. Named export/import
     export const Component;
     import { Component } from 'path';
+
+
+# 2 types of Routing in web apps:
+1. Server side Routing
+2. Client side Routing - 
+   React-router-dom provides client side routing this is said to Single Page Application(via routing)
+
