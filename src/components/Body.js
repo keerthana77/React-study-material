@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
     const [data, setData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
     const [searchText, setSearchText] = useState("");
+    const onlineStatus = useOnlineStatus();
 
     function filterButton() {
         const filtered = data.filter(d => d.info.avgRating > 4);
@@ -23,6 +26,7 @@ const Body = () => {
         fetchData();
     }, [])
 
+    if(onlineStatus === false) return <h2>No internet connection. Please check your connection!!</h2>  
     /** Conditional rendering */
 
     return data?.length === 0 ? <Shimmer /> : (
@@ -40,7 +44,7 @@ const Body = () => {
 
             <div className="res-container">
                 {filteredData?.map(d => {
-                    return <RestaurantCard key={d?.info?.id} resData={d} />
+                    return <Link key={d?.info?.id} to={`/restaurants/${d?.info?.id}`}><RestaurantCard resData={d} /></Link>
                 })}
             </div>
         </div>

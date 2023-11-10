@@ -21,24 +21,26 @@
     padding: 0px 20px;
 }
 
-.search {
-    padding: 20px;
-}
-
 .res-container {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
 }
 
-.res-card {
-    width : 180px;
+.res-container a {
+    width : 17%;
     height: 330px;
     border: 1px solid #ddd;
     padding: 10px;
+    color: #0f0f0f;
+    text-decoration: none;
 }
 
-.res-card:hover {
+.res-card {
+    width: 100%;
+}
+
+.res-container a:hover {
     cursor: pointer;
     box-shadow: 1px -1px 13px 4px #ddd
 }
@@ -63,6 +65,36 @@
     height: 70px;
 }
 
-.filter-btn {
-    margin: 10px;
+.shimmer {
+    padding: 20px;
+}
+
+.shimmer .res-logo img {
+    text-indent: -1000px;
+    background: #ddd;
+}
+.shimmer h4 {
+    background: #ddd;
+    color: #ddd;
+}
+
+.shimmer h5 {
+    background: #ddd;
+    color: #ddd;
+}
+
+.login {
+    padding: 0px 20px;
+    cursor: pointer;
+}
+
+.filter {
+    display: flex;
+    padding: 20px 0px;
+    gap: 20px;
+}
+
+.user-card {
+    padding: 10px;
+    border: 1px solid #ddd;
 }

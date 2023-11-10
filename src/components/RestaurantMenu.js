@@ -1,34 +1,36 @@
-import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 export default function RestaurantMenu() {
-    const [data, setData] = useState(null);
+    const { resId } = useParams();
+    const resInfo = useRestaurantMenu(resId);
 
-    async function fetchMenu() {
-        const response = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.93829619947158&lng=80.14404561370611&restaurantId=37642&catalog_qa=undefined&submitAction=ENTER");
-        const json = await response.json();
-        setData(json.data)
-    }
-
-    useEffect(() => {
-        fetchMenu();
-    },[])
-    
-    if(data == null) {
+    if (resInfo == null) {
         return <Shimmer />;
     }
-    const { name, cuisines, costForTwoMessage, cloudinaryImageId } = data?.cards[0]?.card?.card?.info;
-    const { itemCards } = data?.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card;
-    console.log(itemCards)
-   return (
+
+    const { name, cuisines, costForTwoMessage } = resInfo?.cards[0]?.card?.card?.info;
+
+    function getItemsCards() {
+        if(Object.keys(data?.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card).includes('itemCards')) {
+            return data?.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card
+        } else if(Object.keys(data?.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card).includes('itemCards')) {
+            return data?.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
+        }
+    }
+
+    const { itemCards } = getItemsCards();
+
+    return (
         <div className="menu">
             <h1>{name}</h1>
             <h3>{cuisines.join(', ')} - {costForTwoMessage}</h3>
             <ul>
-                <li>Salad</li>
-                <li>Sprouts</li>
-                <li>Smoothie</li>
+                {itemCards.map(d => {
+                    return <li key={d.card.info.id}>{d.card.info.name} - Rs.{d.card.info.price /100}</li>
+                })}
             </ul>
         </div>
-    )    
+    )
 }
