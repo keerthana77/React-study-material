@@ -30,21 +30,21 @@ const Body = () => {
     /** Conditional rendering */
 
     return data?.length === 0 ? <Shimmer /> : (
-        <div className="body">
-            <div className="filter">
+        <div className="body p-4 bg-purple-50">
+            <div className="filter flex">
                 <div className="search">
-                    <input type="text" className="input-search" value={searchText} onChange={(e) => setSearchText(e.target.value)}/>
-                    <button className="" onClick={() => {
+                    <input type="text" className="input-search border py-1 border-solid border-black" value={searchText} onChange={(e) => setSearchText(e.target.value)}/>
+                    <button className="px-4 py-2 bg-green-200" onClick={() => {
                         const filtered = data.filter(d => d.info.name.toLowerCase().includes(searchText.toLowerCase()));
                         setFilteredData(filtered);
                     }}>Search</button>
                 </div>
-                <button className="filter-btn" onClick={() => filterButton()}>Filter</button>
+                <button className="px-4 py-2 bg-green-200 filter-btn" onClick={() => filterButton()}>Filter</button>
             </div>
 
             <div className="res-container">
                 {filteredData?.map(d => {
-                    return <Link key={d?.info?.id} to={`/restaurants/${d?.info?.id}`}><RestaurantCard resData={d} /></Link>
+                    return <Link key={d?.info?.id} to={`/restaurants/${d?.info?.id}`} className="rounded-lg bg-white"><RestaurantCard resData={d} /></Link>
                 })}
             </div>
         </div>
