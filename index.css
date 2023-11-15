@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -28,7 +32,7 @@
 }
 
 .res-container a {
-    width : 17%;
+    width : 15.4rem;
     height: 330px;
     border: 1px solid #ddd;
     padding: 10px;
