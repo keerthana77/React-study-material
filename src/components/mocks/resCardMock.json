@@ -1,0 +1,95 @@
+{
+    "id": "105955",
+    "name": "Sri Meenakshi Bhavan",
+    "cloudinaryImageId": "fvopv9xpfmeymlwsdwxy",
+    "locality": "Shanmuga Nagar",
+    "areaName": "Chitlapakkam",
+    "costForTwo": "₹200 for two",
+    "cuisines": [
+        "South Indian",
+        "Chaat",
+        "North Indian"
+    ],
+    "avgRating": 4.3,
+    "feeDetails": {
+        "restaurantId": "105955",
+        "fees": [
+            {
+                "name": "BASE_DISTANCE",
+                "fee": 3000
+            },
+            {
+                "name": "BASE_TIME"
+            },
+            {
+                "name": "ANCILLARY_SURGE_FEE"
+            }
+        ],
+        "totalFee": 3000
+    },
+    "parentId": "17520",
+    "avgRatingString": "4.3",
+    "totalRatingsString": "10K+",
+    "sla": {
+        "deliveryTime": 19,
+        "lastMileTravel": 1,
+        "serviceability": "SERVICEABLE",
+        "slaString": "19 mins",
+        "lastMileTravelString": "1.0 km",
+        "iconType": "ICON_TYPE_EMPTY"
+    },
+    "availability": {
+        "nextCloseTime": "2023-11-17 23:30:00",
+        "opened": true
+    },
+    "badges": {
+        "textExtendedBadges": [
+            {
+                "iconId": "guiltfree/GF_Logo_android_3x",
+                "shortDescription": "options available",
+                "fontColor": "#7E808C"
+            }
+        ]
+    },
+    "isOpen": true,
+    "type": "F",
+    "badgesV2": {
+        "entityBadges": {
+            "imageBased": {},
+            "textBased": {},
+            "textExtendedBadges": {
+                "badgeObject": [
+                    {
+                        "attributes": {
+                            "description": "",
+                            "fontColor": "#7E808C",
+                            "iconId": "guiltfree/GF_Logo_android_3x",
+                            "shortDescription": "options available"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "aggregatedDiscountInfoV3": {
+        "header": "30% OFF",
+        "subHeader": "UPTO ₹75"
+    },
+    "orderabilityCommunication": {
+        "title": {},
+        "subTitle": {},
+        "message": {},
+        "customIcon": {}
+    },
+    "differentiatedUi": {
+        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        "differentiatedUiMediaDetails": {
+            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+            "lottie": {},
+            "video": {}
+        }
+    },
+    "reviewsSummary": {},
+    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+    "restaurantOfferPresentationInfo": {}
+}

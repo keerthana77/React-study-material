@@ -3,11 +3,11 @@ import { CDN_URL } from "../utils/constants";
 import UserContext from "../utils/UserContext";
 
 const RestaurantCard = ({ resData }) => {
-    const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } = resData?.info;
+    const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } = resData;
     const { loggedInUser } = useContext(UserContext);
 
     return (
-        <div className="res-card ">
+        <div data-testid="resCard" className="res-card ">
             <div className="res-logo ">
                 <img src={CDN_URL + cloudinaryImageId} className="rounded-lg" />
             </div>

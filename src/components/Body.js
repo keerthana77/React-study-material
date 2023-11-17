@@ -14,8 +14,8 @@ const Body = () => {
     const { loggedInUser, setUserName } = useContext(UserContext);
 
     function filterButton() {
-        const filtered = data.filter(d => d.info.avgRating > 4);
-        setData(filtered);
+        const filtered = data.filter(d => d.info.avgRating > 4.3);
+        setFilteredData(filtered);
     }
 
     async function fetchData() {
@@ -36,7 +36,7 @@ const Body = () => {
         <div className="body p-4 bg-purple-50">
             <div className="filter flex">
                 <div className="search">
-                    <input type="text" className="input-search border p-1 border-solid border-black outline-none" value={searchText} onChange={(e) => setSearchText(e.target.value)} />
+                    <input type="text" className="input-search border p-1 border-solid border-black outline-none" value={searchText} onChange={(e) => setSearchText(e.target.value)} data-testid="searchInput" />
                     <button className="px-4 py-2 bg-green-200" onClick={() => {
                         const filtered = data.filter(d => d.info.name.toLowerCase().includes(searchText.toLowerCase()));
                         setFilteredData(filtered);
@@ -52,7 +52,7 @@ const Body = () => {
             <div className="res-container">
                 {filteredData?.map(d => {
                     return <Link key={d?.info?.id} to={`/restaurants/${d?.info?.id}`} className="rounded-lg bg-white">
-                        {d.info.veg ? <RestaurantCardVeg resData={d} /> : <RestaurantCard resData={d} />}
+                        {d.info.veg ? <RestaurantCardVeg resData={d.info} /> : <RestaurantCard resData={d.info} />}
                     </Link>
                 })}
             </div>
